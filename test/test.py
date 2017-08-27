@@ -68,7 +68,7 @@ def test_visual_selection_with_filetype_and_formatter():
     '''
     dir_before = 'visual_before/'
     dir_after = 'visual_after/'
-    for filename in listdir(dir_before):
+    for filename in os.listdir(dir_before):
         (filetype, formatter, start_line, end_line) = filename.split('_')
         output_file = '/tmp/neoformat_' + filename
         cmd = f'vim -u vimrc -c "set verbose=1 | {start_line},{end_line}Neoformat! {filetype} {formatter} | w! {output_file} | q! "  {dir_before + filename}'
