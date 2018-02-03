@@ -18,7 +18,7 @@ pip install yapf==0.14.0
 
 # Linter(s)
 if ! hash vint 2>/dev/null; then
-    pip install vim-vint
+    pip3 install vim-vint
 fi
 
 # Make sure neovim is installed
