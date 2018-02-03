@@ -98,11 +98,10 @@ function! s:neoformat(bang, user_input, start_line, end_line) abort
 
         call neoformat#utils#log(stdout)
 
-        let valid_exit_codes = get(cmd, 'valid_exit_codes', [0])
+        call neoformat#utils#log(cmd.valid_exit_codes)
+        call neoformat#utils#log(v:shell_error)
 
-        call neoformat#utils#log(valid_exit_codes)
-
-        let process_ran_succesfully = index(valid_exit_codes, v:shell_error) != -1
+        let process_ran_succesfully = index(cmd.valid_exit_codes, v:shell_error) != -1
         if process_ran_succesfully
             " 1. append the lines that are before and after the formatterd content
             let lines_after = getbufline(bufnr('%'), a:end_line + 1, '$')
@@ -258,6 +257,7 @@ function! s:generate_cmd(definition, filetype) abort
         \ 'name':      a:definition.exe,
         \ 'replace':   get(a:definition, 'replace', 0),
         \ 'tmp_file_path': path,
+        \ 'valid_exit_codes': get(a:definition, 'valid_exit_codes', [0]),
         \ }
 endfunction
 

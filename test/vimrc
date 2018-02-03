@@ -9,3 +9,8 @@ autocmd! filetype javascript set shiftwidth=4
 autocmd! BufRead *.ts set filetype=typescript
 set nocompatible
 set noswapfile
+
+let g:neoformat_python_cp = {
+      \ 'exe': 'cp',
+      \ 'valid_exit_codes': [64],
+      \ }

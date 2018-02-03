@@ -88,31 +88,6 @@ def test_formatprg_with_neoformat():
     assert before == after
 
 
-def test_exit_code_specify():
-    '''
-    a hack of a test to make normally bad exit codes work as successful exit codes
-
-    We use cp since it errors on stdin and it is on the CI
-    '''
-
-    dir_before = 'before/'
-    filename = 'cp.py'
-    output_file = '/tmp/neoformat_exit_code_' + filename
-    viml = '''
-
-    let g:neoformat_python_cp = {
-            \ 'exe': 'cp',
-            \ 'valid_exit_codes': [64],
-            \ }
-
-    '''
-    cmd = f'nvim -u vimrc -c "set verbose=1 | {viml} | Neoformat | w! {output_file} | q! " --headless {dir_before + filename}'
-    run_cmd(cmd)
-    before = readlines(output_file)
-    after = readlines('./after/cp.py')
-    assert before == after
-
-
 def test_formatprg_without_enable():
     '''
     Test that formatprg isn't use when not enabled
