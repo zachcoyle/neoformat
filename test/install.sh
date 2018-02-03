@@ -43,6 +43,4 @@ if [ ! -d "$HOME/.vim/plugged/vader.vim" ]; then
 fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export $PATH="$DIR/bin":$PATH
-
-cp ./bin/exit64 /usr/bin
+export PATH="$DIR/bin":$PATH
