@@ -10,7 +10,8 @@ autocmd! BufRead *.ts set filetype=typescript
 set nocompatible
 set noswapfile
 
+" seems like cp doesn't have standard exit codes
 let g:neoformat_python_cp = {
       \ 'exe': 'cp',
-      \ 'valid_exit_codes': [64],
+      \ 'valid_exit_codes': [1, 64],
       \ }
