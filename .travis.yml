@@ -8,6 +8,7 @@ cache:
 
 env:
     - NODE_VERSION="5.11.1"
+    - PATH=$PATH:"/home/travis/build/sbdchd/neoformat/test/bin"
 
 python:
     - "3.6"
