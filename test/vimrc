@@ -12,6 +12,6 @@ set noswapfile
 
 " seems like cp doesn't have standard exit codes
 let g:neoformat_python_cp = {
-      \ 'exe': 'cp',
+      \ 'exe': 'exit64',
       \ 'valid_exit_codes': [1, 64],
       \ }

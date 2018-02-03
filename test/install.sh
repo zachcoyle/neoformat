@@ -41,3 +41,6 @@ fi
 if [ ! -d "$HOME/.vim/plugged/vader.vim" ]; then
     git clone https://github.com/junegunn/vader.vim.git ~/.vim/plugged/vader.vim
 fi
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export PATH="$DIR/bin":$PATH
