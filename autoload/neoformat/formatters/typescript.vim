@@ -1,5 +1,5 @@
 function! neoformat#formatters#typescript#enabled() abort
-   return ['tsfmt', 'prettier', 'prettiereslint', 'tslint', 'eslint_d', 'clangformat', 'denofmt']
+   return ['tsfmt', 'prettier', 'prettiereslint', 'tslint', 'eslint_d', 'clangformat', 'denofmt', 'eslint']
 endfunction
 
 function! neoformat#formatters#typescript#tsfmt() abort
@@ -58,4 +58,12 @@ endfunction
 
 function! neoformat#formatters#typescript#denofmt() abort
     return neoformat#formatters#javascript#denofmt()
+endfunction
+
+function! neoformat#formatters#typescript#eslint() abort
+   return {
+            \ 'exe': 'eslint',
+            \ 'args': ['--fix'],
+            \ 'replace': 1,
+            \ }
 endfunction
