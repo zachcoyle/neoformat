@@ -64,6 +64,6 @@ function! neoformat#formatters#typescript#eslint() abort
    return {
             \ 'exe': 'eslint',
             \ 'args': ['--fix'],
-            \ 'replace': 1,
+            \ 'stdin': 1,
             \ }
 endfunction
